@@ -58,34 +58,57 @@ _-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfa
 Im Grunde reichen diese beiden Funktionen. Man kann natürlich auch eigene Funktionen schreiben, besonders zur Wiederverwendbarkeit und Übersichtlichkeit.
 Der Aufbau ist so, wie von anderen Programmiersprachen bekannt. Kurzes Beispiel, "Zwei Zahlen addieren".
 
+- Code wird über Pfeil-Button kompiliert und auf Board geladen. In schwarzem Balken unten steht Fortschritt und auch Fehler werden da beschrieben. 
+- Beim Laden auf Board: BOOT-Taster gedrückt halten
+- EN-Taster bewirkt Neustart des Boards, wenn bereits Code darauf läuft.
+
+In den Beispielen nutzen wir Standard-Arduino Funktionen. 
+
+_->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestellt_
+
 ### Beispiel
 #### Licht steuern 
 ##### 1. LED anbinden
-- Pin definieren und initialisieren "pinMode(pin, mode)"
+- Pin definieren und initialisieren: Funktion "pinMode(pin, mode)"
 - LED wird ein- oder ausgeschaltet -> Digitales Signal (Output)
 - Funktion "digitalWrite(pin)"
+- Funktion "delay()" 
 
 ##### 2. Bewegungsmelder anbinden
 - Sensor googlen: Wie wird der angebunden?
-- Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
+- Pin definieren und initialisieren
+- Serielle Schnittstelle initialisieren: Funktion "Serial.begin(baud)"
 - Sensor erkennt Bewegung oder nicht -> Digitales Signal (Input)
 - Funktion "digitalRead(pin,value)"
-- Wert des Sensors auf seriellem Monitor ausgeben
+- Wert des Sensors auf seriellem Monitor ausgeben: Funktion "Serial.println(value)"
 
 ##### 3. LED mit Bewegungsmelder steuern
 - wenn Bewegung erkannt, soll LED leuchten, sonst nicht
 - Schritte 1 und 2 kombinieren
 
 #### "Heizung" steuern
+
 Eine Heizung haben wir nicht, das ist aber einfach auch nur ein Aktor. den wir mit einer weiteren LED simulieren können.
 Im Gegensatz zur LED aus 1. kann eine Heizung aber auch "ein bisschen" eingeschaltet sein. 
 Bei einer LED kann man das über Dimmen umsetzen. -> Analoges Signal (Output)
 
 ##### 4. LED dimmen
+- Pin definieren, __ACHTUNG: Nicht alle Pins können analoge Signale verarbeiten!__
+- Es gibt eine "analogRead"-Funktion - die funktioniert aber für den ESP nicht. Wir nutzen PWM. _-> CheatSheet!_
+- in Setup():
+  - ledcAttachPin(pin,channel)
+  - ledcSetup(channel, freq, resolution)
+  <!-- 0 bis 2^(Resolution)-1 wird auf 0-3,3V Ausgang gemappt -->
+- ledcWrite(channel, value)
 
 ##### 5. Temperatursensor anbinden
 - Sensor googlen: Wie wird der angebunden?
+- wir nutzen, laut Beispiel Bibliothken. Die müssen erst hinzugefügt werden: _Tools > Bibliotheksverwalter_
 - Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
-- Sensor erkennt Bewegung oder nicht -> Digitales Signal (Input)
-- Funktion "digitalRead(pin,value)"
+- Sensor erkennt verschiedene Temperatur-Werte -> Analoges Signal (Input)
+- Wir übernehmen die Konfiguration der Bibliotheken und das Auslesen des Sensors vom Beispiel-Projekt.
 - Wert des Sensors auf seriellem Monitor ausgeben
+
+##### 6. "Heizung" entsprechend der Temperatur steuern
+- Schritte 4 und 5 kombinieren
+- Heizung aus über definierter Temperatur, voll an unter definierter Temperatur, dazwischen "etwas an"
