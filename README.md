@@ -55,4 +55,37 @@ _-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfa
 - loop()
   - wird wiederholt durchlaufen, solange Board eingeschaltet
 
-Im Grunde reichen diese beiden Funktionen.
+Im Grunde reichen diese beiden Funktionen. Man kann natürlich auch eigene Funktionen schreiben, besonders zur Wiederverwendbarkeit und Übersichtlichkeit.
+Der Aufbau ist so, wie von anderen Programmiersprachen bekannt. Kurzes Beispiel, "Zwei Zahlen addieren".
+
+### Beispiel
+__Licht steuern__
+1. LED anbinden
+- Pin definieren und initialisieren "pinMode(pin, mode)"
+- LED wird ein- oder ausgeschaltet -> Digitales Signal (Output)
+- Funktion "digitalWrite(pin)"
+
+2. Bewegungsmelder anbinden
+- Sensor googlen: Wie wird der angebunden?
+- Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
+- Sensor erkennt Bewegung oder nicht -> Digitales Signal (Input)
+- Funktion "digitalRead(pin,value)"
+- Wert des Sensors auf seriellem Monitor ausgeben
+
+3. LED mit Bewegungsmelder steuern
+- wenn Bewegung erkannt, soll LED leuchten, sonst nicht
+- Schritte 1 und 2 kombinieren
+
+__"Heizung" steuern__
+Eine Heizung haben wir nicht, das ist aber einfach auch nur ein Aktor. den wir mit einer weiteren LED simulieren können.
+Im Gegensatz zur LED aus 1. kann eine Heizung aber auch "ein bisschen" eingeschaltet sein. 
+Bei einer LED kann man das über Dimmen umsetzen. -> Analoges Signal (Output)
+
+4. LED dimmen
+
+5. Temperatursensor anbinden
+- Sensor googlen: Wie wird der angebunden?
+- Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
+- Sensor erkennt Bewegung oder nicht -> Digitales Signal (Input)
+- Funktion "digitalRead(pin,value)"
+- Wert des Sensors auf seriellem Monitor ausgeben
