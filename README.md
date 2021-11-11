@@ -18,12 +18,14 @@ ESP32 an sich:
   - WLAN
   - Bluetooth
   - ...
+  - 
 Typischerweise meint man aber ein Entwicklungsboard, wenn man vom ESP32 spricht (SoC):
 - vielseitig und schnell einsetzbar
 - WLAN-Antenne, Stromversorgung des Chips und Metallstifte für die Pins sind schon vorgesehen
 - unterschiedliche Boards haben auch unterschiedliche Belegungen welcher Metallstift welche Schnittstellen unterstützt ("Pin-Belegung")
 Wir haben das "DOIT ESP32 DEVKIT V1" hier. Wichtig, darauf zu achten, wenn man Pin-Belegung sucht. 
-*-> Ist als Bild im Repository abgelegt *
+
+_-> Ist als Bild im Repository abgelegt_
 
 ### 2. Programmierung
 Anbindung an Computer über USB
@@ -39,7 +41,8 @@ Arduino
 ## Hands-On
 ### Vorbereitung
 - ESP32 ist nicht standardmäßig in Arduino IDE vorhanden und muss hinzugefügt werden
-*-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfach herunterladen und entpacken
+
+_-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfach herunterladen und entpacken_
 - Board auswählen
 - Verbindungsport einstellen
 
@@ -53,4 +56,3 @@ Arduino
   - wird wiederholt durchlaufen, solange Board eingeschaltet
 
 Im Grunde reichen diese beiden Funktionen.
-- 
