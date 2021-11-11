@@ -71,7 +71,7 @@ _->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestel
 ##### 1. LED anbinden
 - Pin definieren und initialisieren: Funktion "pinMode(pin, mode)"
 - LED wird ein- oder ausgeschaltet -> Digitales Signal (Output)
-- Funktion "digitalWrite(pin)"
+- Funktion "digitalWrite(pin, level)"
 - Funktion "delay()" 
 
 ##### 2. Bewegungsmelder anbinden
@@ -79,7 +79,7 @@ _->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestel
 - Pin definieren und initialisieren
 - Serielle Schnittstelle initialisieren: Funktion "Serial.begin(baud)"
 - Sensor erkennt Bewegung oder nicht -> Digitales Signal (Input)
-- Funktion "digitalRead(pin,value)"
+- Funktion "value = digitalRead(pin)"
 - Wert des Sensors auf seriellem Monitor ausgeben: Funktion "Serial.println(value)"
 
 ##### 3. LED mit Bewegungsmelder steuern
