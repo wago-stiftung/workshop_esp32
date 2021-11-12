@@ -11,3 +11,9 @@ PWM
 Webserver auf dem ESP32
 - https://lastminuteengineers.com/creating-esp32-web-server-arduino-ide/
 
+Sensoren
+- https://shop.allnet.de/media/pdf/11/0b/36/142387.pdf
+- https://www.reichelt.de/de/de/arduino-ir-linienfinder-ard-line-finder1-p282520.html?trstct=pol_3&nbc=1&&r=1
+- https://cdn-reichelt.de/documents/datenblatt/C200/ST1140.pdf
+- https://www.conrad.de/de/p/ultraschallabstandsensor-sen-us01-1274216.html
+- https://asset.conrad.com/media10/add/160267/c1/-/de/001274216ML01/bedienungsanleitung-1274216-ultraschallabstandsensor-sen-us01.pdf
