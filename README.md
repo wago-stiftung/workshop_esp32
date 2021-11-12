@@ -18,7 +18,7 @@ ESP32 an sich:
   - WLAN
   - Bluetooth
   - ...
-  - 
+ 
 Typischerweise meint man aber ein Entwicklungsboard, wenn man vom ESP32 spricht (SoC):
 - vielseitig und schnell einsetzbar
 - WLAN-Antenne, Stromversorgung des Chips und Metallstifte für die Pins sind schon vorgesehen
@@ -29,13 +29,13 @@ _-> Ist als Bild im Repository abgelegt_
 
 ### 2. Programmierung
 Anbindung an Computer über USB
-- Versorgung des Boards mit 5V (für eigenständigen Betrieb über VIN-Pin)
+- Versorgung des Boards mit 5V (für eigenständigen Betrieb über VIN-Pin) __ACHTUNG: Der eigentliche ESP arbeitet intern mit 3,3 V! Darauf achten, wenn man Sensoren anschließt!__
 - Austausch von Informationen im laufenden Betrieb 
 
 Programmierung ist über verschiedene Entwicklungsplattformen zur Verfügung, z.B. Arduino IDE und MicroPython.
 
 Arduino
-- c bzw. C++ ähnliche Programmiersprache
+- C bzw. C++ ähnliche Programmiersprache
 - viele Beispiele und Bibliotheken für einfachen Einstieg
 
 ## Hands-On
@@ -47,8 +47,6 @@ _-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfa
 - Verbindungsport einstellen
 
 ### Programmieren
-- Einbinden von Bibliotheken
-- Deklarieren von Platzhaltern
 - setup() 
   - beim Hochfahren des Boards einmal aufgerufen, 
   - zur Initialisierung von Pins, Serieller Schnittstelle usw.
@@ -58,10 +56,6 @@ _-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfa
 Im Grunde reichen diese beiden Funktionen. Man kann natürlich auch eigene Funktionen schreiben, besonders zur Wiederverwendbarkeit und Übersichtlichkeit.
 Der Aufbau ist so, wie von anderen Programmiersprachen bekannt. Kurzes Beispiel, "Zwei Zahlen addieren".
 
-- Code wird über Pfeil-Button kompiliert und auf Board geladen. In schwarzem Balken unten steht Fortschritt und auch Fehler werden da beschrieben. 
-- Beim Laden auf Board: BOOT-Taster gedrückt halten
-- EN-Taster bewirkt Neustart des Boards, wenn bereits Code darauf läuft.
-
 In den Beispielen nutzen wir Standard-Arduino Funktionen. 
 
 _->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestellt_
@@ -69,10 +63,14 @@ _->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestel
 ### Beispiel
 #### Licht steuern 
 ##### 1. LED anbinden
-- Pin definieren und initialisieren: Funktion "pinMode(pin, mode)"
+- Pin über Platzhalter definieren und in Setup initialisieren: Funktion "pinMode(pin, mode)"
 - LED wird ein- oder ausgeschaltet -> Digitales Signal (Output)
 - Funktion "digitalWrite(pin, level)"
 - Funktion "delay()" 
+
+- Code wird über Pfeil-Button kompiliert und auf Board geladen. In schwarzem Balken unten steht Fortschritt und auch Fehler werden da beschrieben. 
+- Beim Laden auf Board: BOOT-Taster gedrückt halten
+- EN-Taster bewirkt Neustart des Boards, wenn bereits Code darauf läuft.
 
 ##### 2. Bewegungsmelder anbinden
 - Sensor googlen: Wie wird der angebunden?
@@ -103,7 +101,7 @@ Bei einer LED kann man das über Dimmen umsetzen. -> Analoges Signal (Output)
 
 ##### 5. Temperatursensor anbinden
 - Sensor googlen: Wie wird der angebunden?
-- wir nutzen, laut Beispiel Bibliothken. Die müssen erst hinzugefügt werden: _Tools > Bibliotheksverwalter_
+- wir nutzen Bibliothken, genauso wie im Beispiel. Die müssen erst hinzugefügt werden: _Tools > Bibliotheksverwalter_
 - Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
 - Sensor erkennt verschiedene Temperatur-Werte -> Analoges Signal (Input)
 - Wir übernehmen die Konfiguration der Bibliotheken und das Auslesen des Sensors vom Beispiel-Projekt.
