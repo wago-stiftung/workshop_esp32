@@ -41,8 +41,6 @@ Arduino
 ## Hands-On
 ### Vorbereitung
 - ESP32 ist nicht standardmäßig in Arduino IDE vorhanden und muss hinzugefügt werden
-
-_-> "arduinoEsp32-1.8.13-windows-portable.zip" ist in Repository abgelegt, einfach herunterladen und entpacken_
 - Board auswählen
 - Verbindungsport einstellen
 
@@ -99,14 +97,12 @@ Bei einer LED kann man das über Dimmen umsetzen. -> Analoges Signal (Output)
   <!-- 0 bis 2^(Resolution)-1 wird auf 0-3,3V Ausgang gemappt -->
 - ledcWrite(channel, value)
 
-##### 5. Temperatursensor anbinden
-- Sensor googlen: Wie wird der angebunden?
-- wir nutzen Bibliothken, genauso wie im Beispiel. Die müssen erst hinzugefügt werden: _Tools > Bibliotheksverwalter_
+##### 5. Abstandssensor anbinden
+- Sensor googlen: Wie wird der angebunden? (z.B. über "Nützliche Links")
 - Pin definieren und initialisieren, Serielle Schnittstelle initialisieren
-- Sensor erkennt verschiedene Temperatur-Werte -> Analoges Signal (Input)
-- Wir übernehmen die Konfiguration der Bibliotheken und das Auslesen des Sensors vom Beispiel-Projekt.
+- Sensor erkennt verschiedene über Ultraschall Abstand -> Analoges Signal (Input)
 - Wert des Sensors auf seriellem Monitor ausgeben
 
-##### 6. "Heizung" entsprechend der Temperatur steuern
-- Schritte 4 und 5 kombinieren
+##### 6. "Heizung" entsprechend des Abstands steuern
+- Schritte 4 und 5 können natürlich auch kombiniert werden
 - Heizung aus über definierter Temperatur, voll an unter definierter Temperatur, dazwischen "etwas an"
