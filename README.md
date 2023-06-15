@@ -27,9 +27,10 @@ Wir haben das "DOIT ESP32 DEVKIT V1" hier. Wichtig, darauf zu achten, wenn man P
 
 _-> Ist als Bild im Repository abgelegt_
 
-### 2. Programmierung
+### 2. Programmierung - Grundlagen
 Anbindung an Computer über USB
-- Versorgung des Boards mit 5V (für eigenständigen Betrieb über VIN-Pin) __ACHTUNG: Der eigentliche ESP arbeitet intern mit 3,3 V! Darauf achten, wenn man Sensoren anschließt!__
+- Versorgung des Boards mit 5V (für eigenständigen Betrieb über VIN-Pin) 
+__ACHTUNG: Der eigentliche ESP arbeitet intern mit 3,3 V! Darauf achten, wenn man Sensoren anschließt!__
 - Austausch von Informationen im laufenden Betrieb 
 
 Programmierung ist über verschiedene Entwicklungsplattformen zur Verfügung, z.B. Arduino IDE und MicroPython.
@@ -51,8 +52,9 @@ Arduino
 - loop()
   - wird wiederholt durchlaufen, solange Board eingeschaltet
 
-Im Grunde reichen diese beiden Funktionen. Man kann natürlich auch eigene Funktionen schreiben, besonders zur Wiederverwendbarkeit und Übersichtlichkeit.
-Der Aufbau ist so, wie von anderen Programmiersprachen bekannt. Kurzes Beispiel, "Zwei Zahlen addieren".
+- Code wird über Pfeil-Button kompiliert und auf Board geladen. In schwarzem Balken unten steht Fortschritt und auch Fehler werden da beschrieben. 
+- Beim Laden auf Board: BOOT-Taster gedrückt halten
+- EN-Taster bewirkt Neustart des Boards, wenn bereits Code darauf läuft.
 
 In den Beispielen nutzen wir Standard-Arduino Funktionen. 
 
@@ -66,9 +68,6 @@ _->Diese (und weitere) sind auf dem "CheatSheet" im Repository nochmal dargestel
 - Funktion "digitalWrite(pin, level)"
 - Funktion "delay()" 
 
-- Code wird über Pfeil-Button kompiliert und auf Board geladen. In schwarzem Balken unten steht Fortschritt und auch Fehler werden da beschrieben. 
-- Beim Laden auf Board: BOOT-Taster gedrückt halten
-- EN-Taster bewirkt Neustart des Boards, wenn bereits Code darauf läuft.
 
 ##### 2. Bewegungsmelder anbinden
 - Sensor googlen: Wie wird der angebunden?
